@@ -54,10 +54,10 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="accountIdField" pref="83" max="32767" attributes="0"/>
+                  <Component id="accountIdField" pref="91" max="32767" attributes="0"/>
                   <Component id="pinField" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="221" max="32767" attributes="0"/>
+              <EmptySpace pref="197" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -78,7 +78,7 @@
                   <Component id="pinLabel" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="pinField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="162" max="32767" attributes="0"/>
+              <EmptySpace pref="110" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="loginButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="createAccountButton" alignment="3" min="-2" max="-2" attributes="0"/>

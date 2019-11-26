@@ -13,7 +13,7 @@ public class Bank {
         accounts = new ArrayList<>();
         loadData();
         loggedInAccount = null;
-        System.out.println(accounts);
+        printAccounts();
     }
     
     public void addAccount(Account account) {
@@ -98,7 +98,7 @@ public class Bank {
         loggedInAccount = null;
     }
 
-    public void printAccounts() {
+    public final void printAccounts() {
         System.out.println(accounts);
     }
 }

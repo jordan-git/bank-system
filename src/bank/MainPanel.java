@@ -21,7 +21,8 @@ public class MainPanel extends javax.swing.JPanel {
     }
     
     public void setBalanceLabel() {
-        balanceLabel.setText("€" + Double.toString(bankApplication.getBank().getLoggedIn().getBalance()));
+        Account loggedInAccount = bankApplication.getBank().getLoggedIn();
+        balanceLabel.setText("€" + Double.toString(loggedInAccount.getBalance()));
     }
 
     /**
@@ -91,9 +92,9 @@ public class MainPanel extends javax.swing.JPanel {
                     .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(balanceFixedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(balanceFixedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(balanceLabel))
                             .addGroup(layout.createSequentialGroup()
@@ -105,7 +106,7 @@ public class MainPanel extends javax.swing.JPanel {
                                     .addComponent(depositButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(depositField)))
                             .addComponent(logoutButton)
-                            .addComponent(errorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(errorLabel))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -137,13 +138,18 @@ public class MainPanel extends javax.swing.JPanel {
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         bankApplication.getBank().logout();
         bankApplication.hideMainPanel();
+        errorLabel.setVisible(false);
+        withdrawField.setText("");
+        depositField.setText("");
+
         bankApplication.showStartupPanel();
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void withdrawButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawButtonActionPerformed
-        Account loggedInAcc = bankApplication.getBank().getLoggedIn();
-        double balance = loggedInAcc.getBalance();
+        Account loggedInAccount = bankApplication.getBank().getLoggedIn();
+        double balance = loggedInAccount.getBalance();
         double withdrawAmount = 0;
+
         try {
             withdrawAmount = Double.parseDouble(withdrawField.getText());
         } catch(NumberFormatException e) {
@@ -153,8 +159,8 @@ public class MainPanel extends javax.swing.JPanel {
 
         
         if (balance >= withdrawAmount) {
-            loggedInAcc.withdraw(withdrawAmount);
-            balanceLabel.setText("€" + Double.toString(loggedInAcc.getBalance()));
+            loggedInAccount.withdraw(withdrawAmount);
+            setBalanceLabel();
         } else {
             errorLabel.setText("Insufficient funds");
             errorLabel.setVisible(true);
@@ -162,10 +168,20 @@ public class MainPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_withdrawButtonActionPerformed
 
     private void depositButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositButtonActionPerformed
-        // TODO add your handling code here:
+        Account loggedInAccount = bankApplication.getBank().getLoggedIn();
+
+        try {
+            loggedInAccount.deposit(Double.parseDouble(depositField.getText()));
+        } catch (NumberFormatException e) {
+            errorLabel.setText("Please enter a number only");
+            errorLabel.setVisible(true);
+        }
+
+        setBalanceLabel();
     }//GEN-LAST:event_depositButtonActionPerformed
 
     public void setParent(BankApplication bankApplication) {
+        // Links the parent object to this panel to allow access to the rest of the program.
         this.bankApplication = bankApplication;
     }
     

@@ -87,17 +87,17 @@ public class CreateAccountPanel extends javax.swing.JPanel {
                             .addComponent(pinLabel)
                             .addComponent(accountIdLabel))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(221, 221, 221)
+                        .addComponent(stdAccountButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(businessAccountButton)
+                        .addGap(0, 221, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(272, 272, 272)
                         .addComponent(returnButton)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(221, 221, 221)
-                .addComponent(stdAccountButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(businessAccountButton)
-                .addContainerGap(233, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,9 +112,9 @@ public class CreateAccountPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(stdAccountButton)
                     .addComponent(businessAccountButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(32, 32, 32)
                 .addComponent(returnButton)
-                .addGap(64, 64, 64))
+                .addGap(38, 38, 38))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -122,6 +122,7 @@ public class CreateAccountPanel extends javax.swing.JPanel {
         bankApplication.hideCreateAccountPanel();
         accountIdLabel.setVisible(false);
         pinLabel.setVisible(false);
+
         bankApplication.showStartupPanel();
     }//GEN-LAST:event_returnButtonActionPerformed
 
@@ -131,7 +132,9 @@ public class CreateAccountPanel extends javax.swing.JPanel {
         pinLabel.setText("Your PIN is: " + account.getPin());
         accountIdLabel.setVisible(true);
         pinLabel.setVisible(true);
+
         bankApplication.getBank().addAccount(account);
+        bankApplication.getBank().printAccounts();
     }//GEN-LAST:event_stdAccountButtonActionPerformed
 
     private void businessAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_businessAccountButtonActionPerformed
@@ -140,10 +143,13 @@ public class CreateAccountPanel extends javax.swing.JPanel {
         pinLabel.setText("Your PIN is: " + account.getPin());
         accountIdLabel.setVisible(true);
         pinLabel.setVisible(true);
+
         bankApplication.getBank().addAccount(account);
+        bankApplication.getBank().printAccounts();
     }//GEN-LAST:event_businessAccountButtonActionPerformed
 
     public void setParent(BankApplication bankApplication) {
+        // Links the parent object to this panel to allow access to the rest of the program.
         this.bankApplication = bankApplication;
     }
     

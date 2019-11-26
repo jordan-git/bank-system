@@ -17,6 +17,8 @@ public class StartupPanel extends javax.swing.JPanel {
      */
     public StartupPanel() {
         initComponents();
+
+        // Hide error label by default
         incorrectLabel.setVisible(false);
     }
 
@@ -112,9 +114,9 @@ public class StartupPanel extends javax.swing.JPanel {
                     .addComponent(pinLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(accountIdField, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                    .addComponent(accountIdField, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
                     .addComponent(pinField))
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addContainerGap(197, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,7 +133,7 @@ public class StartupPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pinLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pinField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(loginButton)
                     .addComponent(createAccountButton)
@@ -139,8 +141,9 @@ public class StartupPanel extends javax.swing.JPanel {
                 .addGap(65, 65, 65))
         );
     }// </editor-fold>//GEN-END:initComponents
-    
+
     public void setParent(BankApplication bankApplication) {
+        // Links the parent object to this panel to allow access to the rest of the program.
         this.bankApplication = bankApplication;
     }
     
@@ -149,6 +152,7 @@ public class StartupPanel extends javax.swing.JPanel {
             bankApplication.hideStartupPanel();
             accountIdField.setText("");
             pinField.setText("");
+
             bankApplication.getMainPanel().setBalanceLabel();
             bankApplication.showMainPanel();
         } else {
