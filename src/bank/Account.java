@@ -1,12 +1,14 @@
 package bank;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class Account implements Serializable {
     private String accountNumber, pin;
     private double balance;
     protected double interestRate;
+    private ArrayList<Transaction> transactions;
 
     public Account() {
         this(0);
@@ -16,6 +18,7 @@ public abstract class Account implements Serializable {
         accountNumber = generateNumber(8);
         pin = generateNumber(4);
         this.balance = balance;
+        transactions = new ArrayList<>();
     }
 
     public String toString() {
@@ -77,10 +80,14 @@ public abstract class Account implements Serializable {
     }
 
     public void deposit(double amount) {
+        Transaction transaction = new Transaction("Deposit", amount);
+        transactions.add(transaction);
         balance += amount;
     }
     
     public void withdraw(double amount) {
+        Transaction transaction = new Transaction("Withdraw", amount);
+        transactions.add(transaction);
         balance -= amount;
     }
 }
