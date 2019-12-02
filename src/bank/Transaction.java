@@ -1,9 +1,10 @@
 package bank;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Transaction {
+public class Transaction implements Serializable {
     private final String type;
     private final double amount;
     private final Date date;

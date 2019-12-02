@@ -4,10 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/jordan/Documents/College/Programming/bank-system/src/bank/Bank.java</file>
+            <file>file:/home/jordan/Documents/College/Programming/bank-system/src/bank/Account.java</file>
             <file>file:/home/jordan/Documents/College/Programming/bank-system/src/bank/BankApplication.java</file>
-            <file>file:/home/jordan/Documents/College/Programming/bank-system/src/bank/StartupPanel.java</file>
-            <file>file:/home/jordan/Documents/College/Programming/bank-system/src/bank/MainPanel.java</file>
-            <file>file:/home/jordan/Documents/College/Programming/bank-system/src/bank/CreateAccountPanel.java</file>
+            <file>file:/home/jordan/Documents/College/Programming/bank-system/src/bank/Transaction.java</file>
         </group>
     </open-files>
 </project-private>
