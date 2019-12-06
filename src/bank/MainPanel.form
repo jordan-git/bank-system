@@ -30,12 +30,13 @@
                   <Component id="titleLabel" alignment="0" pref="580" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="balanceFixedLabel" min="-2" pref="63" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="balanceLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="errorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="withdrawField" max="32767" attributes="0"/>
@@ -43,12 +44,15 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="depositButton" max="32767" attributes="0"/>
                                   <Component id="depositField" max="32767" attributes="0"/>
+                                  <Component id="depositButton" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="logoutButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="errorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="changePinButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="logoutButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -80,7 +84,10 @@
                   <Component id="depositButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="logoutButton" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="logoutButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="changePinButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -150,6 +157,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Please enter a number only"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="changePinButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Change PIN"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="changePinButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

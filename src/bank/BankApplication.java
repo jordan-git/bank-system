@@ -15,12 +15,14 @@ public class BankApplication extends javax.swing.JFrame {
     private static MainPanel mainPanel = new MainPanel();
     private static StartupPanel startupPanel = new StartupPanel();
     private static CreateAccountPanel createAccountPanel = new CreateAccountPanel();
+    private static ChangePinPanel changePinPanel = new ChangePinPanel();
     
     public BankApplication() {
         initComponents();
         startupPanel.setParent(this);
         mainPanel.setParent(this);
         createAccountPanel.setParent(this);
+        changePinPanel.setParent(this);
         showStartupPanel();
     }
     
@@ -38,6 +40,10 @@ public class BankApplication extends javax.swing.JFrame {
     
     public CreateAccountPanel getCreateAccountPanel() {
         return createAccountPanel;
+    }
+    
+    public ChangePinPanel getChangePinPanel() {
+        return changePinPanel;
     }
     
     public void showStartupPanel() {
@@ -74,6 +80,19 @@ public class BankApplication extends javax.swing.JFrame {
     public void hideMainPanel() {
         mainPanel.setVisible(false);
         remove(mainPanel);
+    }
+    
+    public void showChangePinPanel() {
+        add(changePinPanel);
+        pack();
+        changePinPanel.setSize(600, 500);
+        changePinPanel.setNewPin();
+        changePinPanel.setVisible(true);
+    }
+    
+    public void hideChangePinPanel() {
+        changePinPanel.setVisible(false);
+        remove(changePinPanel);
     }
 
     /**

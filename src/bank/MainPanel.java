@@ -43,6 +43,7 @@ public class MainPanel extends javax.swing.JPanel {
         withdrawField = new javax.swing.JTextField();
         depositField = new javax.swing.JTextField();
         errorLabel = new javax.swing.JLabel();
+        changePinButton = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(600, 500));
         setMinimumSize(new java.awt.Dimension(600, 500));
@@ -82,6 +83,13 @@ public class MainPanel extends javax.swing.JPanel {
         errorLabel.setForeground(new java.awt.Color(255, 51, 0));
         errorLabel.setText("Please enter a number only");
 
+        changePinButton.setText("Change PIN");
+        changePinButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changePinButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,21 +100,24 @@ public class MainPanel extends javax.swing.JPanel {
                     .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(balanceFixedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(balanceLabel))
+                            .addComponent(errorLabel)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(withdrawField)
                                     .addComponent(withdrawButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(depositButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(depositField)))
-                            .addComponent(logoutButton)
-                            .addComponent(errorLabel))
+                                    .addComponent(depositField)
+                                    .addComponent(depositButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(changePinButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(logoutButton)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -130,7 +141,9 @@ public class MainPanel extends javax.swing.JPanel {
                     .addComponent(withdrawButton)
                     .addComponent(depositButton))
                 .addGap(18, 18, 18)
-                .addComponent(logoutButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(logoutButton)
+                    .addComponent(changePinButton))
                 .addGap(58, 58, 58))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -180,6 +193,11 @@ public class MainPanel extends javax.swing.JPanel {
         setBalanceLabel();
     }//GEN-LAST:event_depositButtonActionPerformed
 
+    private void changePinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePinButtonActionPerformed
+        bankApplication.hideMainPanel();
+        bankApplication.showChangePinPanel();
+    }//GEN-LAST:event_changePinButtonActionPerformed
+
     public void setParent(BankApplication bankApplication) {
         // Links the parent object to this panel to allow access to the rest of the program.
         this.bankApplication = bankApplication;
@@ -188,6 +206,7 @@ public class MainPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel balanceFixedLabel;
     private javax.swing.JLabel balanceLabel;
+    private javax.swing.JButton changePinButton;
     private javax.swing.JButton depositButton;
     private javax.swing.JTextField depositField;
     private javax.swing.JLabel errorLabel;
