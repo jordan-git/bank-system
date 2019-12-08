@@ -5,10 +5,6 @@
  */
 package bank;
 
-/**
- *
- * @author x18119999
- */
 public class BankApplication extends javax.swing.JFrame {
 
     private static Bank bank = new Bank();

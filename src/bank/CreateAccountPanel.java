@@ -5,10 +5,6 @@
  */
 package bank;
 
-/**
- *
- * @author x18119999
- */
 public class CreateAccountPanel extends javax.swing.JPanel {
 
     private BankApplication bankApplication;
